@@ -1,0 +1,34 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(34, 35, 68);
+}
+
+.buttons {
+    display: flex;
+    gap: 50px;
+    margin: 50px;
+}
+
+button {
+    border-radius: 7px;
+    background-color:rgb(0, 106, 255);
+    margin: 30px;
+    padding: 30px;
+    border: 2px solid white;
+    color: azure;
+    font-size: large;
+    font-weight: 600;
+}
+
+.result {
+    color: aliceblue;
+    margin: 50px;
+    font-size: 40px;
+}
+
+.score {
+    color:whitesmoke;
+    font-size: 150px;
+}

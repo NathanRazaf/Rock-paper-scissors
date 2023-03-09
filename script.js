@@ -48,23 +48,27 @@ function playRound(playerSel,compSel) {
     }
 }
 
-function game(roundNumbers) {
-    playerScore=0;
-    playerScore=0;
+const buttons = document.querySelectorAll('button');
+const result = document.querySelector('div[class="result"]');
+const score = document.querySelector('div[class="score"]');
 
-    for (let i=0; i<roundNumbers; i++) {
-        let playerSelection = prompt("Your choice?");
-        let compSelection = getComputerChoice();
-        console.log(`${playRound(playerSelection,compSelection)}, ${playerScore} - ${compScore}`)
+function playGame(e) { {
+    
+    const compChoice = getComputerChoice();
+    const yourChoice = this.className;
+    result.innerHTML = `${playRound(yourChoice,compChoice)}`;
+    if (playerScore == 5) {
+        result.innerHTML = "L'humain gagne... pour le moment."
+        playerScore=0;
+        compScore=0;
     }
+    else if (compScore == 5) {
+        result.innerHTML = "Le robot gagne et brise ton poignet."
+        playerScore=0;
+        compScore=0;
+    }
+    score.innerHTML = `${playerScore} - ${compScore}`;
+}}
 
-    if (playerScore > compScore) {
-        return "You win the match !"
-    }
-    else if (compScore > playerScore) {
-        return "Robot won, you're a failure."
-    }
-    else {
-        return "...Well, that's embarassing"
-    }
-}
+
+buttons.forEach(button => button.addEventListener('click', playGame));
